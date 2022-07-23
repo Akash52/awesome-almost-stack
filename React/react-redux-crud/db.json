@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "anto@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "anto@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "username": "Karianne",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "Mrs. Dennis Schulist",
+      "username": "Leopoldo_Corkery",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 7,
+      "name": "Kurtis Weissnat",
+      "username": "Elwyn.Skiles",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Nicholas Runolfsdottir V",
+      "username": "Maxime_Nienow",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 9,
+      "name": "Glenna Reichert",
+      "username": "Delphine",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "id": 10,
+      "name": "Clementina DuBuque",
+      "username": "Moriah.Stanton",
+      "email": "samantha@gmail.com"
+    },
+    {
+      "name": "Akashvsdvsd",
+      "email": "19it197@gmail.com",
+      "password": "abc",
+      "id": 11
+    },
+    {
+      "name": "Akash",
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "id": 12
+    },
+    {
+      "name": "",
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "id": 13
+    },
+    {
+      "name": "Akash",
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "id": 14
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 15
+    },
+    {
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "id": 16
+    },
+    {
+      "name": "Leanne Graham",
+      "email": "anto@gmail.com",
+      "password": "fhgdfd",
+      "id": 17
+    },
+    {
+      "name": "sdfsedf",
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "id": 18
+    }
+  ]
+}
