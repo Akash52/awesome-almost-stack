@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 6000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  max-width: 500px;
+  width: 100%;
+  min-height: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  padding: 50px;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #842a58;
+}
+form {
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+  display: flex;
+}
+form input,
+form button {
+  flex: 3;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ea9caa;
+  margin: 0 5px;
+}
+
+form button {
+  flex: 1;
+  background: #67a285;
+  color: white;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ul li {
+  list-style: none;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+ul li .active {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+ul li input,
+.row input {
+  margin-right: 5px;
+  transform: translateY(1px);
+}
+
+ul li button,
+.row button {
+  border: none;
+  outline: none;
+  color: white;
+  background: #dfdf2a;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+button:focus {
+  outline: none;
+}
+
+ul li button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.row #delete {
+  background: crimson;
+}
+
+label {
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .App {
+    padding: 10px;
+  }
+}
+h2 {
+  text-align: center;
+  color: #32cd32;
+}
