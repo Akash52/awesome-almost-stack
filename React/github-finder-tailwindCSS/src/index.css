@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #111827;
+  overflow-y: auto;
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wrapper {
+  background: rgb(199, 217, 219);
+  background: linear-gradient(
+    90deg,
+    rgb(174, 220, 238) 0%,
+    rgb(148, 233, 183) 100%
+  );
+  width: 60%;
+  height: 75%;
+}
+.left,
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.canter {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.or {
+  border: 2px solid lightblue;
+  border-radius: 50%;
+  padding: 10px;
+  color: gray;
+  background-color: white;
+  cursor: pointer;
+}
+
+.line {
+  width: 0.5px;
+  height: 70%;
+  background-color: rgb(22, 77, 33);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -2;
+}
+
+.loginButton {
+  width: 170px;
+  padding: 15px 30px;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+input {
+  width: 200px;
+  padding: 15px 30px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
