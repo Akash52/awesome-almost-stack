@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -25,6 +26,8 @@
 */
 import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
+import projects from './mock-data/javascript-data';
+
 import {
   BellIcon,
   ClockIcon,
@@ -523,18 +526,24 @@ export default function CardLWS() {
               </div>
               <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-6 gap-5">
                 {/* Card */}
-                {cards.map((card) => (
+                {projects.map((project) => (
                   <div>
-                    <div className="max-w-sm rounded bg-white dark:bg-gray-800 shadow p-4 sm:p-5">
-                      <img
-                        src="https://i.ibb.co/6RsnQT1/Rectangle-14.png"
-                        alt="public-photo"
-                        className="w-full"
-                      />
-                      <p className="text-base leading-5 pt-6 dark:text-gray-100">
-                        The vaccine is ready, but are we ready to try it on
-                        humans as well?
-                      </p>
+                    <div className="max-w-sm rounded transition duration-500 transform bg-white dark:bg-gray-800 shadow p-4 sm:p-5 hover:scale-110">
+                      <div>
+                        <img
+                          src={project.image}
+                          alt="public-photo"
+                          className="h-48 object-cover shadow-lg rounded w-full  align-middle border-none"
+                        />
+                      </div>
+                      <div className="px-2 py-4">
+                        <div className="font-bold text-xl mb-2 text-sky-900">
+                          {project.name}
+                        </div>
+                        <p className="text-cyan-700 text-base">
+                          {project.description}
+                        </p>
+                      </div>
                       <div className="flex items-center justify-between pt-4">
                         <div className="flex items-center ">
                           <svg
@@ -591,31 +600,6 @@ export default function CardLWS() {
                 ))}
               </div>
             </div>
-
-            {/* Activity list (smallest breakpoint only) */}
-            <div className="shadow sm:hidden">
-              <nav
-                className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200"
-                aria-label="Pagination"
-              >
-                <div className="flex-1 flex justify-between">
-                  <a
-                    href="#"
-                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                  >
-                    Previous
-                  </a>
-                  <a
-                    href="#"
-                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                  >
-                    Next
-                  </a>
-                </div>
-              </nav>
-            </div>
-
-            {/* Activity table (small breakpoint and up) */}
           </div>
         </main>
       </div>

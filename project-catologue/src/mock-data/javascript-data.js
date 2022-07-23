@@ -2,7 +2,7 @@ const projects = [
   {
     id: 1,
     name: 'Project 1',
-    image: 'https://picsum.photos/200/300',
+    image: 'https://i.ibb.co/nDXfDGJ/Scientific-Calc.png',
     stackblitz: 'https://stackblitz.com/edit/react-project-3',
     live_demo: 'https://react-project-3.netlify.app/',
     description: 'This is project 1',
@@ -28,7 +28,7 @@ const projects = [
   {
     id: 2,
     name: 'Project 2',
-    image: 'https://picsum.photos/200/300',
+    image: 'https://i.ibb.co/vz8VRKv/animation.png',
     stackblitz: 'https://stackblitz.com/edit/react-project-3',
     live_demo: 'https://react-project-3.netlify.app/',
     description: 'This is project 2',
@@ -54,7 +54,7 @@ const projects = [
   {
     id: 3,
     name: 'Project 3',
-    image: 'https://picsum.photos/200/300',
+    image: 'https://picsum.photos/200/500',
     stackblitz: 'https://stackblitz.com/edit/react-project-3',
     live_demo: 'https://react-project-3.netlify.app/',
     description: 'This is project 3',
