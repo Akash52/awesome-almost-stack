@@ -1,0 +1,10 @@
+[build]
+base = "Practical_1/"
+publish = "Practical_1/dist/"
+command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
