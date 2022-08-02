@@ -6,4 +6,4 @@
 | `Practical 2`    | [Live Demo](https://vue-sm-pr2.netlify.app/) | `Practical 6`    | [Live Demo](https://vue-sm-pr6.netlify.app/) |
 | `Practical 3`    | [Live Demo](https://vue-sm-pr3.netlify.app/)  | `Practical 7`    | [Live Demo](https://vue-sm-pr7.netlify.app/) |
 | `Practical 4`    | [Live Demo](https://vue-sm-pr4.netlify.app/)  | `Practical 9`    | [Live Demo](https://vue-sm-pr9.netlify.app/login) |
-| `Practical 8`    | [Live Demo](https://vue-sm-pr8.netlify.app/login)  | `react-redux-auth`    | [Live Demo](https://redux-user-man.netlify.app/register) |
+| `Practical 8`    | [Live Demo](https://vue-sm-pr8.netlify.app/login)  | `react-redux-auth`    | [Live Demo]() |
