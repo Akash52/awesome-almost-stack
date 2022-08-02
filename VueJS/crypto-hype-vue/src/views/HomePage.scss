@@ -1,0 +1,33 @@
+.wrapper-row {
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  color: #645f88;
+}
+.search-icon {
+  z-index: 99 !important;
+  cursor: pointer;
+  margin-top: 3px;
+  top: 0;
+  right: 0;
+  transform: translateY(50%);
+  margin-right: 10px;
+  position: absolute;
+  &:hover {
+    color: #645f88;
+  }
+}
+
+.error-span {
+  display: block;
+  color: #f47c7c;
+  font-size: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-bar {
+  position: relative;
+  &:focus-within {
+    border: 1px solid #645f88;
+    border-radius: 30px;
+  }
+}
