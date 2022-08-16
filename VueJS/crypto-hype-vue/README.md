@@ -1,5 +1,7 @@
 # crypto-hype
 
+[live Demo](https://crypto-hype-vue.netlify.app/)
+
 ## Project setup
 ```
 npm install
