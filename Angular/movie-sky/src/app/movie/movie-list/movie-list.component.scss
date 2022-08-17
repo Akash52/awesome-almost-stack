@@ -1,0 +1,25 @@
+img {
+  max-width: 200px;
+  height: 400px;
+  object-fit: cover;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 20px 0px;
+  justify-content: center;
+}
+li {
+  margin: 0px 20px 20px 0px;
+  padding: 20px;
+  border: 1px solid #c2410c;
+  border-radius: 5px;
+  background-color: #1e293b;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
