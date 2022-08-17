@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HabitService } from '../habit.service';
 import { Observable } from 'rxjs';
+import { Habit } from '../habit';
 
 @Component({
   selector: 'app-habit-list',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class HabitListComponent implements OnInit {
   habitFrom: any;
 
-  habits: Observable<any> | undefined;
+  habits: Observable<Habit[]> | undefined;
 
   constructor(private habitService: HabitService) {}
 
@@ -18,7 +19,9 @@ export class HabitListComponent implements OnInit {
     this.habits = this.habitService.getHabits();
   }
 
-  onAddHabit(newHabit: any) {
-    this.habitService.addHabit(newHabit);
+  onAddHabit(newHabit: Habit): void {
+    if (newHabit.title !== '') {
+      this.habitService.addHabit(newHabit);
+    }
   }
 }
