@@ -34,12 +34,11 @@ export class HabitListComponent implements OnInit {
     });
   }
 
-  onSubmit(newHabit: any) {
+  onAddHabit(newHabit: any) {
     if (newHabit.title !== '') {
       const id = this.habits.length + 1;
       newHabit.id = id;
       this.habits.push(newHabit);
-      this.habitFrom.reset();
     }
   }
   ngOnInit(): void {}

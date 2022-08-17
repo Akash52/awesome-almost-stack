@@ -1,17 +1,5 @@
 <h2>Habits</h2>
-<form [formGroup]="habitFrom" (ngSubmit)="onSubmit(habitFrom.value)">
-  <div class="form-group">
-    <label for="habit-name">Habit Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="habit-name"
-      placeholder="Habit Name"
-      formControlName="title"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<app-habit-form (addHabit)="onAddHabit($event)"></app-habit-form>
 <ul>
   <app-habit-details *ngFor="let habit of habits" [habit]="habit">
   </app-habit-details>
