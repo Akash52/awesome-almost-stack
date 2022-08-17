@@ -41,3 +41,9 @@ button {
 .form-group button {
   margin-left: 5px;
 }
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}

@@ -1,1 +1,3 @@
-<li>{{ habit.title }} (Count: {{ habit.count }})</li>
+<li [style.color]="habit.streak ? 'green' : 'black'">
+  {{ habit.title }} (Count: {{ habit.count }})
+</li>

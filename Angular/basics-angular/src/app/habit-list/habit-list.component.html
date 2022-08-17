@@ -1,4 +1,3 @@
-<h2>Habits</h2>
 <app-habit-form (addHabit)="onAddHabit($event)"></app-habit-form>
 <ul>
   <app-habit-details *ngFor="let habit of habits | async" [habit]="habit">
