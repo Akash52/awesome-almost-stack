@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-habit-form',
@@ -12,13 +12,15 @@ export class HabitFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.habitForm = this.formBuilder.group({
-      title: '',
+      title: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {}
   onSubmit(newHabit: any) {
-    this.addHabit.emit(newHabit);
-    this.habitForm.reset();
+    if (newHabit.title !== '') {
+      this.addHabit.emit(newHabit);
+      this.habitForm.reset();
+    }
   }
 }
