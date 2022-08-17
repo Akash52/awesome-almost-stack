@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HabitService } from '../habit.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-habit-list',
@@ -8,31 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class HabitListComponent implements OnInit {
   habitFrom: any;
 
-  habits = [
-    {
-      id: 1,
-      title: 'Read a book',
-    },
-    {
-      id: 2,
-      title: 'Do laundry',
-    },
-    {
-      id: 3,
-      title: 'Do the dishes',
-    },
-    {
-      id: 4,
-      title: 'Do the dishes',
-    },
-  ];
+  habits: Observable<any> | undefined;
 
-  constructor() {}
+  constructor(private habitService: HabitService) {}
+
+  ngOnInit(): void {
+    this.habits = this.habitService.getHabits();
+  }
 
   onAddHabit(newHabit: any) {
-    const id = this.habits.length + 1;
-    newHabit.id = id;
-    this.habits.push(newHabit);
+    this.habitService.addHabit(newHabit);
   }
-  ngOnInit(): void {}
 }
