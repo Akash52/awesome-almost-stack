@@ -1,0 +1,117 @@
+body {
+  background-color: #e47878;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+}
+.container {
+  border-radius: 20px;
+  flex-direction: column;
+  height: 200px;
+  color: white;
+  background-color: rgb(70, 42, 42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  font-size: 1.3rem;
+  line-height: 1.5;
+
+  @media (max-width: 600px) {
+    height: 200px;
+  }
+
+  @media (max-width: 400px) {
+    height: 150px;
+  }
+
+  @media (max-width: 300px) {
+    height: 100px;
+  }
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-right: 5px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e47878;
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #d16666;
+}
+
+button:focus {
+  outline: none;
+}
+
+@keyframes swipeLeft {
+  from {
+    transform: translate3d(-1000px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.swipe-left {
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom center;
+  animation-name: swipeLeft;
+  animation-duration: 300ms;
+}
+
+@keyframes swipeRight {
+  from {
+    transform: translate3d(1000px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes swipeRight {
+  from {
+    transform: translate3d(1000px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.swipe-right {
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom center;
+  animation-name: swipeRight;
+  animation-duration: 300ms;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 5px;
+}
