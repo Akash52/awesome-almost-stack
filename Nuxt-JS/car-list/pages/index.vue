@@ -1,5 +1,6 @@
 <template>
   <main>
+    <CarForm />
     <div v-if="!loading" class="flex flex-wrap">
       <CarList
         v-for="(car, i) in cars"
@@ -17,6 +18,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import CarList from "~/components/CarList.vue";
+import CarForm from "~/components/CarForm.vue";
 
 export default {
   methods: {
@@ -28,7 +30,7 @@ export default {
   async created() {
     await this.getCars();
   },
-  components: { CarList },
+  components: { CarList, CarForm },
 };
 </script>
 
