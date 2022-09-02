@@ -1,6 +1,14 @@
 <template>
-  <ValidationObserver v-slot="{ addCar }">
-    <form @submit.prevent="addCar(onSubmit)">
+  <ValidationObserver v-slot="{ validate }">
+    <form
+      @submit.prevent="
+        validate().then((success) => {
+          if (success) {
+            handleSubmit();
+          }
+        })
+      "
+    >
       <div
         class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none backdrop-blur-sm"
       >
@@ -12,7 +20,7 @@
           >
             <span
               class="absolute top-0 z-50 p-2 m-2 -mt-1 font-extrabold transition bg-slate-800 rounded-full shadow-2xl cursor-pointer text-neutral-100 -translate-x-7 duration-600 shadow-orange-500 hover:ring-4 ring-green-300"
-              @click="goToHome()"
+              @click="closeModal()"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +43,7 @@
                   htmlFor="todo"
                   class="block mb-2 text-lg font-medium text-gray-900"
                 >
-                  Add new Car
+                  {{ modalButton }}
                 </label>
                 <ValidationProvider
                   name="name"
@@ -56,7 +64,7 @@
                   />
                 </ValidationProvider>
                 <ValidationProvider
-                  name="model"
+                  name="top_speed"
                   :rules="{ required: true, numeric: true, min: 3, max: 40 }"
                   v-slot="{ errors }"
                 >
@@ -73,8 +81,8 @@
                   />
                 </ValidationProvider>
                 <ValidationProvider
-                  name="top_speed"
-                  :rules="{ required: true, numeric: true, min: 3, max: 40 }"
+                  name="description"
+                  :rules="{ required: true, min: 20, max: 120 }"
                   v-slot="{ errors }"
                 >
                   <span
@@ -87,12 +95,11 @@
                     class="bg-gray-50 border focus:outline-none border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-2"
                     v-model="description"
                     type="text"
-                    :rules="{ required: true, min: 20, max: 120 }"
                   />
                 </ValidationProvider>
-                <ValidationProvider
-                  name="description"
-                  :rules="{ required: true, url: true }"
+                <!-- <ValidationProvider
+                  name="image_link"
+                  :rules="{ required: true, image: true }"
                   v-slot="{ errors }"
                 >
                   <span
@@ -107,9 +114,9 @@
                     pattern="/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i"
                     v-model="image_link"
                   />
-                </ValidationProvider>
+                </ValidationProvider> -->
                 <ValidationProvider
-                  name="image_link"
+                  name="price"
                   :rules="{
                     required: true,
                     numeric: true,
@@ -128,12 +135,6 @@
                     placeholder="PRICE"
                     class="bg-gray-50 border focus:outline-none border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-2"
                     v-model="price"
-                    :rules="{
-                      required: true,
-                      numeric: true,
-                      min: 0,
-                      max: 1000000,
-                    }"
                   />
                 </ValidationProvider>
               </div>
@@ -145,7 +146,13 @@
                 class="w-full px-6 py-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                 type="submit"
               >
-                Add
+                {{ modalButton }}
+              </button>
+              <button
+                class="w-full px-6 py-3 text-sm ml-2 font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-red-500 active:bg-red-600 hover:shadow-lg focus:outline-none"
+                @click="closeModal()"
+              >
+                close
               </button>
             </div>
           </div>
@@ -158,6 +165,7 @@
 
 <script>
 import { ValidationProvider, ValidationObserver } from "vee-validate";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: { ValidationProvider, ValidationObserver },
@@ -168,27 +176,45 @@ export default {
       description: "",
       image_link: "",
       price: "",
+      mode: "addCar",
     };
   },
   methods: {
-    addCar() {
-      this.$validator.validateAll().then((result) => {
-        if (result) {
-          this.$store.dispatch("addCar", {
-            name: this.name,
-            top_speed: this.top_speed,
-            description: this.description,
-            image_link: this.image_link,
-            price: this.price,
-          });
-          this.name = "";
-          this.top_speed = "";
-          this.description = "";
-          this.image_link = "";
-          this.price = "";
-        }
-      });
+    ...mapActions(["createCar", "updateCar"]),
+    async handleSubmit() {
+      const car = {
+        name: this.name,
+        top_speed: this.top_speed,
+        description: this.description,
+        image_link: this.image_link,
+        price: this.price,
+      };
+      if (this.$route.name === "edit-car") {
+        await this.updateCar({ car });
+      } else {
+        await this.createCar({ car });
+      }
+      this.closeModal();
     },
+    closeModal() {
+      this.$emit("close");
+    },
+  },
+  computed: {
+    modalLabel() {
+      if (this.mode === "addCar") {
+        return "Add Car";
+      } else {
+        return "Edit Car";
+      }
+    },
+  },
+  modalButton() {
+    if (this.mode === "addCar") {
+      return "Add Car";
+    } else {
+      return "Edit Car";
+    }
   },
 };
 </script>

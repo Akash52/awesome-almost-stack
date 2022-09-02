@@ -1,12 +1,19 @@
 <template>
   <main>
-    <CarForm />
+    <button
+      class="px-6 py-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+      @click="showModal = true"
+    >
+      Add Car
+    </button>
+    <CarForm v-if="showModal" @close="showModal = false" />
     <div v-if="!loading" class="flex flex-wrap">
       <CarList
         v-for="(car, i) in cars"
         :key="i"
         :car="car"
         class="w-full max-w-sm px-4 py-6 mx-auto mb-4 transition duration-500 transform md:w-6/12 xl:4/12 lg:w-4/12 lg:mb-0 hover:scale-110"
+        @open="showModal = true"
       />
     </div>
     <div v-else>
@@ -21,6 +28,11 @@ import CarList from "~/components/CarList.vue";
 import CarForm from "~/components/CarForm.vue";
 
 export default {
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   methods: {
     ...mapActions(["getCars"]),
   },

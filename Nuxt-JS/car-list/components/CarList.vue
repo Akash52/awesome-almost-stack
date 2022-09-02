@@ -28,6 +28,7 @@
             stroke="currentColor"
             stroke-width="2"
             title="Edit"
+            @click="showModel()"
           >
             <path
               stroke-linecap="round"
@@ -44,7 +45,7 @@
             stroke="currentColor"
             stroke-width="2"
             title="Delete"
-            @click="deleteCar(car)"
+            @click="deleteCar(car.id)"
           >
             <path
               stroke-linecap="round"
@@ -59,6 +60,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: ["car"],
   data() {
@@ -67,9 +69,10 @@ export default {
     };
   },
   methods: {
-    sayHello() {
-      this.message = "Hello World";
+    showModel() {
+      this.$emit("open");
     },
+    ...mapActions(["deleteCar"]),
   },
 };
 </script>
