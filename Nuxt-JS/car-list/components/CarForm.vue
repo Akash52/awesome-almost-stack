@@ -43,7 +43,7 @@
                   htmlFor="todo"
                   class="block mb-2 text-lg font-medium text-gray-900"
                 >
-                  {{ modalButton }}
+                  {{ modaleTitle }}
                 </label>
                 <ValidationProvider
                   name="name"
@@ -164,11 +164,18 @@
 </template>
 
 <script>
+import { format } from "path";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: { ValidationProvider, ValidationObserver },
+  props: {
+    carId: {
+      type: Number,
+      default: null,
+    },
+  },
   data() {
     return {
       name: "",
@@ -179,8 +186,24 @@ export default {
       mode: "addCar",
     };
   },
+  created() {
+    if (this.carId) {
+      fetch(`https://vue-fake-server.herokuapp.com/cardata/${this.carId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.name = data.name;
+          this.top_speed = data.top_speed;
+          this.description = data.description;
+          this.image_link = data.image_link;
+          this.price = data.price;
+        })
+        .finally(() => {
+          this.mode = "editCar";
+        });
+    }
+  },
   methods: {
-    ...mapActions(["createCar", "updateCar"]),
+    ...mapActions(["createCar", "updateCar", "getCar"]),
     async handleSubmit() {
       const car = {
         name: this.name,
@@ -189,10 +212,16 @@ export default {
         image_link: this.image_link,
         price: this.price,
       };
-      if (this.$route.name === "edit-car") {
-        await this.updateCar({ car });
+      if (this.mode === "addCar") {
+        await this.createCar(car);
       } else {
-        await this.createCar({ car });
+        if (this.carId !== null) {
+          const updatedCar = {
+            ...car,
+            id: this.carId,
+          };
+          await this.updateCar(updatedCar);
+        }
       }
       this.closeModal();
     },
@@ -201,20 +230,15 @@ export default {
     },
   },
   computed: {
-    modalLabel() {
-      if (this.mode === "addCar") {
-        return "Add Car";
-      } else {
-        return "Edit Car";
-      }
+    modalButton() {
+      return this.mode === "addCar" ? "Add Car" : "Update Car";
+    },
+    modaleTitle() {
+      return this.mode === "addCar" ? "Add Car" : "Edit Car";
     },
   },
-  modalButton() {
-    if (this.mode === "addCar") {
-      return "Add Car";
-    } else {
-      return "Edit Car";
-    }
+  beforeDestroy() {
+    this.mode = "addCar";
   },
 };
 </script>

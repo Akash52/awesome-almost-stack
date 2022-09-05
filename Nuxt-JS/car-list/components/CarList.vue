@@ -1,9 +1,11 @@
 <template>
-  <div class="max-w-md py-2 my-2 bg-gray-800 shadow-lg rounded-xl">
+  <div
+    class="max-w-sm my-4 bg-gray-800 rounded-xl border-emerald-500 border-2 shadow-2xl"
+  >
     <img
       alt="..."
       :src="car.image_link"
-      class="-mt-2 transition border-b-2 shadow-xl cursor-pointer border-emerald-50 hover:opacity-80 duration-600"
+      class="-mt-2 transition shadow-orange-600 shadow-md backdrop-blur-md cursor-pointer hover:opacity-80 duration-600 py-1 px-1 rounded-xl"
     />
     <div class="pt-6 text-center">
       <h5 class="text-xl font-bold text-gray-400 whitespace-nowrap">
@@ -22,13 +24,13 @@
         <div class="flex justify-end">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 mr-2 font-extrabold transition bg-gray-800 rounded-full shadow-2xl cursor-pointer text-neutral-100 duration-600 shadow-orange-500 hover:text-blue-500"
+            class="w-6 h-6 mr-2 font-extrabold transition bg-gray-800 rounded-full shadow-2xl cursor-pointer text-neutral-100 duration-600 shadow-orange-500 hover:text-blue-500 animate-pulse"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-width="2"
             title="Edit"
-            @click="showModel()"
+            @click="editCar(car.id)"
           >
             <path
               stroke-linecap="round"
@@ -36,10 +38,9 @@
               d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
             />
           </svg>
-
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 mr-2 font-extrabold transition bg-gray-800 rounded-full shadow-2xl cursor-pointer text-neutral-100 duration-600 shadow-orange-500 hover:text-red-500"
+            class="w-6 h-6 mr-2 font-extrabold transition bg-gray-800 rounded-full shadow-2xl cursor-pointer text-neutral-100 duration-600 shadow-orange-500 hover:text-red-500 animate-pulse"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -69,10 +70,13 @@ export default {
     };
   },
   methods: {
-    showModel() {
-      this.$emit("open");
+    // ...mapActions(["deleteCar"]),
+    deleteCar(id) {
+      this.$emit("deleteCar", id);
     },
-    ...mapActions(["deleteCar"]),
+    editCar(id) {
+      this.$emit("editCar", id);
+    },
   },
 };
 </script>

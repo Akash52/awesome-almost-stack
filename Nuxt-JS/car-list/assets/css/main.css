@@ -1,127 +1,142 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Fira sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira sans", sans-serif;
 }
 
 body {
-	background-color: rgb(38, 35, 54);
-	color: #FFF;
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
 }
 
 main {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 2rem;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
 }
 
 main h1 {
-	font-size: 2.5rem;
-	text-transform: capitalize;
-	margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
 
 main h1 ~ p {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 main .create-new {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 480px;
 }
 
 main .create-new input {
-	appearance: none;
-	border: none;
-	outline: none;
-	border-bottom: 1px solid #FFF;
-	background-color: transparent;
-	color: #FFF;
-	font-size: 1.5rem;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	margin: 0;
-	transition: 0.4s;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 0;
+  transition: 0.4s;
 }
 
 main .create-new input:focus {
-	border-bottom-color: rgb(47, 214, 111);
+  border-bottom-color: rgb(47, 214, 111);
 }
 
 main .create-new button {
-	appearance: none;
-	border: none;
-	outline: none;
-	background-color: rgb(47, 214, 111);
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #000;
-	font-size: 1.5rem;
-	padding: 0.5rem 1rem;
-	border-radius: 0.5rem;
-	margin-left: 0.5rem;
-	cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: rgb(47, 214, 111);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 main .tasks {
-	width: 100%;
-	max-width: 480px;
-	margin-top: 2rem;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 2rem;
 }
 
 main .tasks .task {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background-color: rgb(52, 47, 78);
-	padding: 1rem;
-	border-radius: 0.5rem;
-	margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(52, 47, 78);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 main .tasks .task .buttons {
-	min-width: fit-content;
+  min-width: fit-content;
 }
 
 main .tasks .task button {
-	appearance: none;
-	border: none;
-	outline: none;
-	background-color: rgb(47, 214, 111);
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #000;
-	font-size: 0.875rem;
-	padding: 0.5rem 1rem;
-	border-radius: 0.5rem;
-	margin-left: 0.5rem;
-	cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: rgb(47, 214, 111);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 main .tasks .task button.delete {
-	background-color: crimson;
-	color: #EEE;
+  background-color: crimson;
+  color: #eee;
 }
 
 .tasks .task.is-complete {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .tasks .task.is-complete .content {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 main .footer {
-	width: auto;
-	height: auto;
-	text-align: center;
-	text-justify: auto;
-	padding-top: 200px;
-	padding-bottom: 20px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  text-justify: auto;
+  padding-top: 200px;
+  padding-bottom: 20px;
 }

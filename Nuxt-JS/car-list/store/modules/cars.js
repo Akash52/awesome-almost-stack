@@ -101,6 +101,10 @@ const mutations = {
   removeCar(state, id) {
     state.cars = state.cars.filter((car) => car.id !== id);
   },
+  updateCar(state, car) {
+    const index = state.cars.findIndex((c) => c.id === car.id);
+    state.cars.splice(index, 1, car);
+  },
 };
 
 export default {
