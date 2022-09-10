@@ -11,4 +11,10 @@ export class AppComponent {
     name: 'John',
     age: 30,
   };
+  onClick() {
+    alert('clicked');
+  }
+  onKeyUp(newName: string) {
+    this.data.name = newName;
+  }
 }

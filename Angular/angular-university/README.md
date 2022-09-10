@@ -33,3 +33,7 @@ Note :
 - {{}} is called interpolation
 - [()] is called two way binding
 - {{}} is going to be considered as a JavaScript expression and it's going to be evaluated
+
+### 006 Why Angular\_ Learn the Key Features of Angular Core
+
+-

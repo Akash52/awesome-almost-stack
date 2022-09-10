@@ -1,2 +1,11 @@
 <h1>Hello {{ title }}!</h1>
 <p>Person {{ data.name }} is {{ data.age }} years old.</p>
+<input
+  type="text"
+  placeholder="Enter name"
+  class="demo"
+  [value]="data.name"
+  (keyup)="onKeyUp(nameInput.value)"
+  #nameInput
+/>
+<button (click)="onClick()">Click Me</button>
