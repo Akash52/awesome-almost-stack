@@ -12,6 +12,8 @@
           type="email"
           name="email"
           #email="ngModel"
+          (ngModelChange)="onEmailChange($event)"
+          [ngModelOptions]="{ updateOn: 'blur' }"
           placeholder="Email"
           ngModel
           required
