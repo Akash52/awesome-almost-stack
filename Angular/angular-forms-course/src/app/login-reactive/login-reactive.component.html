@@ -10,6 +10,12 @@
           placeholder="Email"
           formControlName="email"
         />
+        <mat-error *ngIf="email.errors?.required">
+          The email is mandatory.
+        </mat-error>
+        <mat-error *ngIf="email.errors?.email">
+          This email is not valid email
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -19,7 +25,27 @@
           placeholder="Password"
           formControlName="password"
         />
+        <mat-error *ngIf="password.errors?.required">
+          The Password is mandatory.
+        </mat-error>
       </mat-form-field>
+
+      <ng-container
+        *ngIf="
+          password.errors
+            | onlyOneError: ['minlength', 'passwordStrength'] as error
+        "
+      >
+        <div class="field-message" *ngIf="error.minlength">
+          Your password must have minimum
+          {{ error.minlength.requiredLength }} chars, but it only has
+          {{ error.minlength.actualLength }}.
+        </div>
+
+        <div class="field-message" *ngIf="error.passwordStrength">
+          Your password must have lower case, upper case and numeric characters.
+        </div>
+      </ng-container>
 
       <button
         mat-raised-button
