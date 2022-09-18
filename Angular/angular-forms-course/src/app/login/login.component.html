@@ -40,13 +40,28 @@
           ngModel
           required
           passwordStrength
+          minlength="8"
         />
+
         <mat-error *ngIf="password.errors?.required">
           The Password is mandatory.
         </mat-error>
-        <mat-error *ngIf="password.errors?.passwordStrength">
-          Your Password must be lower case , uper case and numric character.
-        </mat-error>
+
+        <<ng-container
+          *ngIf="
+            password.errors
+              | onlyOneError: ['minlength', 'passwordStrength'] as error
+          "
+        >
+          <mat-error *ngIf="error?.minlength">
+            Your email must have minimum
+            {{ error?.minlength.requiredLength }} chars, but it only has
+            {{ error?.minlength.actualLength }}.
+          </mat-error>
+          <mat-error *ngIf="error?.passwordStrength">
+            Your Password must be lower case , uper case and numric character.
+          </mat-error>
+        </ng-container>
       </mat-form-field>
 
       <button
