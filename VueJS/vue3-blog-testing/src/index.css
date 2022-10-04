@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
+nav {
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+.timeline-nav {
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+}
+ul {
+  list-style: revert;
+  list-style-position: inside;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: revert;
+  margin: 10px 0 !important;
+}
+
+pre {
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  margin: 10px 0 !important;
+}
+p {
+  margin: 10px 0 !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .brand-name {
+    visibility: hidden;
+  }
+}
