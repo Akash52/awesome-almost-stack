@@ -22,7 +22,7 @@
     "@angular/material": "^14.0.1",
     "@angular/material-moment-adapter": "14.0.1",
     "@angular/platform-browser": "14.0.1",
-    "@angular/platform-browser-dynamic": "14.0.1",
+    "@angular/platform-browser-dynaemic": "14.0.1",
     "@angular/router": "14.0.1",
     "body-parser": "^1.18.3",
     "core-js": "^2.4.1",
