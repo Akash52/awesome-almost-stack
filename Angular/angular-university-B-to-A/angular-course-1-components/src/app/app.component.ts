@@ -10,6 +10,11 @@ import { COURSES } from "./../db-data";
 export class AppComponent {
   courses = COURSES;
 
+  startDate = new Date(2000, 0, 1);
+
+  price = 9.464546;
+  rate = 0.97;
+
   onCourseSelected(course: Course) {
     console.log("Course selected: ");
     console.log(course);
