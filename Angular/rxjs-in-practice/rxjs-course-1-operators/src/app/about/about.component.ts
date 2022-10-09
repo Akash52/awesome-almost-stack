@@ -9,10 +9,15 @@ export class AboutComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    let counter = 0;
-    setInterval(() => {
-      counter++;
-      console.log(counter);
-    }, 1000);
+    document.addEventListener("click", function (event) {
+      console.log(event);
+      let counter = 0;
+      setTimeout(() => {
+        setInterval(() => {
+          counter++;
+          console.log(counter);
+        }, 1000);
+      }, 3000);
+    });
   }
 }
