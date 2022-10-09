@@ -1,21 +1,23 @@
-<div class="course-card" [ngClass]="cardClasses()">
-  <div class="course-title" [ngStyle]="cardStyle()">
-    {{ cardIndex + " " + course.description }}
-  </div>
-  <img
-    width="300"
-    alt="Angular Logo"
-    *ngIf="course.iconUrl"
-    [src]="course.iconUrl"
-  />
+<ng-container *ngIf="course">
+  <div class="course-card" [ngClass]="cardClasses()">
+    <div class="course-title" [ngStyle]="cardStyle()">
+      {{ cardIndex + " " + course.description }}
+    </div>
+    <img
+      width="300"
+      alt="Angular Logo"
+      *ngIf="course.iconUrl"
+      [src]="course.iconUrl"
+    />
 
-  <div class="course-description">
-    {{ course.longDescription }}
+    <div class="course-description">
+      {{ course.longDescription }}
+    </div>
+    <div class="course-category" [ngSwitch]="course.category">
+      <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>
+      <div class="category" *ngSwitchCase="'INTERMEDIATE'">INTERMEDIATE</div>
+      <div class="category" *ngSwitchDefault>All Levels</div>
+    </div>
+    <button (click)="onCourseViewed()">View Course</button>
   </div>
-  <div class="course-category" [ngSwitch]="course.category">
-    <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>
-    <div class="category" *ngSwitchCase="'INTERMEDIATE'">INTERMEDIATE</div>
-    <div class="category" *ngSwitchDefault>All Levels</div>
-  </div>
-  <button (click)="onCourseViewed()">View Course</button>
-</div>
+</ng-container>
