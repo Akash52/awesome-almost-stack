@@ -7,6 +7,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   Res,
 } from '@nestjs/common';
 
@@ -17,8 +18,9 @@ export class CoffeesController {
   //URL : http://localhost:3000/coffees
 
   @Get()
-  findAll(@Res() response) {
-    response.status(200).send('This action returns all coffees');
+  findAll(@Query() paginationQuery) {
+    const { limit, offset } = paginationQuery;
+    return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
   }
 
   // Description: This is a Get request
