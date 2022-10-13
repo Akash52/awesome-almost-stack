@@ -10,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
         {{ message.length ? 'Yes' : 'No' }}
       </h1>
 
-      <input type="text" [value]="message" (input)="handleInput($event)" />
+      <input
+        type="text"
+        [value]="message"
+        (input)="handleInput($event)"
+        #inputRef
+      />
+      <p>{{ inputRef.value }}</p>
     </div>
   `,
   styles: [
