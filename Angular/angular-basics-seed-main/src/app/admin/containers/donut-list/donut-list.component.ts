@@ -5,11 +5,18 @@ import { Donut } from '../../models/donut.model';
   selector: 'app-donut-list',
   template: `
     <div>
-      <h1>Donut List</h1>
-      <div>
-        {{ donut.name }}
-        {{ donut.price }}
-        {{ donut.description }}
+      <div class="donut-card">
+        <img
+          src="/assets/img/{{ donut.icon }}.svg"
+          [alt]="donut.name"
+          class="donut-card-icon"
+        />
+        <p class="donut-card-name">
+          {{ donut.name }}
+        </p>
+        <p class="donut-card-price">
+          {{ donut.price | currency: 'USD':true }}
+        </p>
       </div>
     </div>
   `,
@@ -26,7 +33,7 @@ export class DonutListComponent implements OnInit {
       {
         id: 'abc',
         name: 'Chocolate Glazed',
-        icon: 'just-chocolate-glazed',
+        icon: 'just-chocolate',
         description:
           'Chocolate glazed donut with chocolate icing and sprinkles',
         price: 1.99,
