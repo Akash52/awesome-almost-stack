@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
     <div class="app">
       {{ message }}
       {{ message === 'Hello World' }}
-      {{ message.length ? 'Yes' : 'No' }}
-      <h1 [class.red]="message === 'Hello World'"></h1>
-      <input type="text" [value]="message" />
+      <h1 (click)="handleClick($event)">
+        {{ message.length ? 'Yes' : 'No' }}
+      </h1>
+
+      <input type="text" [value]="message" (input)="handleInput($event)" />
     </div>
   `,
   styles: [
@@ -27,5 +29,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.message = 'Hello World!';
     console.log('Hello World!');
+  }
+  handleClick(event: Event) {
+    console.log(event);
+  }
+  handleInput(event: Event) {
+    this.message = (event.target as HTMLInputElement).value;
   }
 }
