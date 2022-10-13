@@ -5,3 +5,5 @@
 https://blog.sqreen.com/authentication-best-practices-vue/
 
 https://garywoodfine.com/using-vuex-and-vue-router-in-a-vue-project/
+
+<img src="https://i.ibb.co/5MWWdNz/ang.png" alt="ang" border="0">
