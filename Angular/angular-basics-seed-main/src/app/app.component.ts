@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
       {{ message }}
       {{ message === 'Hello World' }}
       {{ message.length ? 'Yes' : 'No' }}
+      <h1 [class.red]="message === 'Hello World'"></h1>
+      <input type="text" [value]="message" />
     </div>
   `,
   styles: [
