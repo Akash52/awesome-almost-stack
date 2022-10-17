@@ -20,6 +20,12 @@ import { Donut } from '../../models/donut.model';
   `,
   styles: [
     `
+      :host {
+        display: block;
+        border: 1px solid #ef9fc7;
+        border-radius: 8px;
+        margin: 8px;
+      }
       .donut-card {
         display: flex;
         flex-direction: column;
