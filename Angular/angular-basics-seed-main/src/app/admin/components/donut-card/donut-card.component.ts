@@ -4,7 +4,10 @@ import { Donut } from '../../models/donut.model';
 @Component({
   selector: 'app-donut-card',
   template: `
-    <div class="donut-card">
+    <div
+      class="donut-card"
+      [style]="{ 'border-color': donut.promo ? '#ef7fc9' : 'none' }"
+    >
       <img
         src="/assets/img/{{ donut.icon }}.svg"
         [alt]="donut.name"

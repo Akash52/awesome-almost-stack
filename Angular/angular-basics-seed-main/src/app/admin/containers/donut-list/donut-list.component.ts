@@ -33,6 +33,7 @@ export class DonutListComponent implements OnInit {
         icon: 'caramel-swirl',
         description: 'Strawberry frosted donut with rainbow  sprinkles',
         price: 1.99,
+        promo: true,
       },
       {
         id: 'ghi',
