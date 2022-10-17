@@ -5,19 +5,7 @@ import { Donut } from '../../models/donut.model';
   selector: 'app-donut-list',
   template: `
     <div>
-      <div class="donut-card">
-        <img
-          src="/assets/img/{{ donut.icon }}.svg"
-          [alt]="donut.name"
-          class="donut-card-icon"
-        />
-        <p class="donut-card-name">
-          {{ donut.name }}
-        </p>
-        <p class="donut-card-price">
-          {{ donut.price | currency: 'USD':true }}
-        </p>
-      </div>
+      <app-donut-card></app-donut-card>
     </div>
   `,
   styles: [],
@@ -41,14 +29,14 @@ export class DonutListComponent implements OnInit {
       {
         id: 'def',
         name: 'Strawberry Frosted',
-        icon: 'just-strawberry-frosted',
+        icon: 'caramel-swirl',
         description: 'Strawberry frosted donut with rainbow sprinkles',
         price: 1.99,
       },
       {
         id: 'ghi',
         name: 'Powdered Sugar',
-        icon: 'just-powdered-sugar',
+        icon: 'glazed-fudge',
         description: 'Powdered sugar donut with rainbow sprinkles',
         price: 1.99,
       },
