@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Donut } from '../../models/donut.model';
 
 @Component({
   selector: 'app-donut-card',
@@ -19,8 +20,7 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [],
 })
-export class DonutCardComponent implements OnInit {
+export class DonutCardComponent {
+  @Input() donut!: Donut;
   constructor() {}
-
-  ngOnInit(): void {}
 }
