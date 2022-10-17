@@ -4,16 +4,32 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app">
+      <header class="app-header" role="banner" aria-label="Application header">
+        <img class="app-logo" src="assets/img/logo.svg" alt="Angular Donuts" />
+        <!-- <h1 class="app-title">Donut Shop</h1> -->
+      </header>
+
       <app-donut-list> </app-donut-list>
     </div>
   `,
   styles: [
     `
       .app {
-        margin-top: 50px;
-        font-size: 22px;
-        color: #fff;
+        background-color: #fff;
+        border-radius: 8px;
+        max-width: 400px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        padding: 25px;
+        margin: 25px auto;
+        boredr: 4px solid #ef9fc7;
+      }
+      .app-header {
+        background-color: #ef9fc7;
+        border-radius: 8px 8px 0 0;
+        padding: 25px;
+        margin: -25px -25px 25px;
         text-align: center;
+        color: #fff;
       }
     `,
   ],
