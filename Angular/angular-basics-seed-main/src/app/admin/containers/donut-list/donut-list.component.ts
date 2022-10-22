@@ -9,7 +9,7 @@ import { Donut } from '../../models/donut.model';
       </ng-container>
       <ng-template #cards>
         <app-donut-card
-          *ngFor="let donut of donuts"
+          *ngFor="let donut of donuts; trackBy: trackById"
           [donut]="donut"
         ></app-donut-card>
       </ng-template>
@@ -51,5 +51,8 @@ export class DonutListComponent implements OnInit {
         price: 1.99,
       },
     ];
+  }
+  trackById(index: number, donut: Donut): string {
+    return donut.id;
   }
 }
