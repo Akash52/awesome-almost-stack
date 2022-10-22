@@ -4,13 +4,7 @@ import { Donut } from '../../models/donut.model';
 @Component({
   selector: 'app-donut-card',
   template: `
-    <div
-      class="donut-card"
-      [ngStyle]="{
-        background: donut.promo ? '#f8f6f9' : '#fff',
-        border: donut.promo ? '4px solid #ef9fc7' : 'none'
-      }"
-    >
+    <div class="donut-card" [class.donut-card-promo]="donut.promo">
       <img
         src="/assets/img/{{ donut.icon }}.svg"
         [alt]="donut.name"
@@ -41,10 +35,13 @@ import { Donut } from '../../models/donut.model';
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         padding: 25px;
         margin: 25px;
-        border: 4px solid #ef9fc7;
+        border: 2px solid #ef9fc7;
         transition: transform 0.2s ease-in-out;
         &:hover {
           transform: scale(1.05);
+        }
+        &-promo {
+          border: 4px solid #ef9fc7;
         }
         &-name {
           font-size: 1.5rem;
