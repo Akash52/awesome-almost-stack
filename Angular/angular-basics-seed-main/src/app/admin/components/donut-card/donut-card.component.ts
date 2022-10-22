@@ -4,12 +4,14 @@ import { Donut } from '../../models/donut.model';
 @Component({
   selector: 'app-donut-card',
   template: `
-    <div class="donut-card" [class.donut-card-promo]="donut.promo">
-      <img
-        src="/assets/img/{{ donut.icon }}.svg"
-        [alt]="donut.name"
-        class="donut-card-icon"
-      />
+    <div
+      class="donut-card"
+      [ngClass]="{
+        'donut-card-promo': donut.promo,
+        'donut-card-border': !donut.promo
+      }"
+    >
+      <img src="/assets/img/{{ donut.icon }}.svg" [alt]="donut.name" />
       <p class="donut-card-name">
         {{ donut.name | titlecase }}
       </p>
@@ -42,6 +44,9 @@ import { Donut } from '../../models/donut.model';
         }
         &-promo {
           border: 4px solid #ef9fc7;
+        }
+        &-border {
+          border: 2px solid #ef9fc7;
         }
         &-name {
           font-size: 1.5rem;
