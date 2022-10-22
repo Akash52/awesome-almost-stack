@@ -6,12 +6,27 @@ import { Component, OnInit } from '@angular/core';
     <form class="donut-form" #form="ngForm">
       <label>
         <span> Name </span>
-        <input type="text" name="name" class="input" required ngModel />
+        <input
+          type="text"
+          name="name"
+          class="input"
+          required
+          ngModel
+          #name="ngModel"
+        />
+
+        =
       </label>
 
       <label>
         <span> Icon </span>
-        <select name="icon" class="input input--select" required ngModel>
+        <select
+          name="icon"
+          class="input input--select"
+          required
+          ngModel
+          #icon="ngModel"
+        >
           <option *ngFor="let icon of icons" [value]="icon">
             {{ icon }}
           </option>
@@ -20,20 +35,48 @@ import { Component, OnInit } from '@angular/core';
 
       <label>
         <span> Price </span>
-        <input type="number" name="price" class="input" required ngModel />
+        <input
+          type="number"
+          name="price"
+          class="input"
+          required
+          ngModel
+          #price="ngModel"
+        />
       </label>
       <div class="donut-form-radios">
         <p class="donut-form-radios-label">Promo :</p>
         <label>
-          <input type="radio" name="promo" value="undefined" required ngModel />
+          <input
+            type="radio"
+            name="promo"
+            value="undefined"
+            required
+            ngModel
+            #promo="ngModel"
+          />
           <span> None </span>
         </label>
         <label>
-          <input type="radio" name="promo" value="new" required ngModel />
+          <input
+            type="radio"
+            name="promo"
+            value="new"
+            required
+            ngModel
+            #promo="ngModel"
+          />
           <span> Yes </span>
         </label>
         <label>
-          <input type="radio" name="promo" value="limited" required ngModel />
+          <input
+            type="radio"
+            name="promo"
+            value="limited"
+            required
+            ngModel
+            #promo="ngModel"
+          />
           <span> No </span>
         </label>
       </div>
