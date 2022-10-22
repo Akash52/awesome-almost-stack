@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
     <div class="app">
       <header class="app-header" role="banner" aria-label="Application header">
         <img class="app-logo" src="assets/img/logo.svg" alt="Angular Donuts" />
-        <!-- <h1 class="app-title">Donut Shop</h1> -->
       </header>
 
-      <app-donut-list> </app-donut-list>
+      <!-- <app-donut-list> </app-donut-list> -->
+      <app-donut-single></app-donut-single>
     </div>
   `,
   styles: [
