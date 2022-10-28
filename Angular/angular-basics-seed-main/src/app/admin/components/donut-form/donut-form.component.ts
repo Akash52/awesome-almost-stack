@@ -11,11 +11,18 @@ import { Component, OnInit } from '@angular/core';
           name="name"
           class="input"
           required
+          minlength="3"
           ngModel
           #name="ngModel"
         />
-
-        =
+        <ng-container *ngIf="name.invalid && name.touched">
+          <div class="donut-form-error" *ngIf="name.errors?.required">
+            Name is required
+          </div>
+          <div class="donut-form-error" *ngIf="name.errors?.minlength">
+            Name must be at least 3 characters
+          </div>
+        </ng-container>
       </label>
 
       <label>
@@ -111,6 +118,23 @@ import { Component, OnInit } from '@angular/core';
               color: #444;
               margin-bottom: 0;
             }
+          }
+        }
+        &-error {
+          color: #e66262;
+          font-size: 12px;
+          margin-top: 4px;
+          &::before {
+            content: '⚠';
+            margin-right: 4px;
+            font-size: 14px;
+            color: #e66262;
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateY(-1px);
+            font-weight: bold;
+            line-height: 1;
+            text-align: center;
           }
         }
       }
