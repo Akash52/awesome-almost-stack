@@ -39,6 +39,11 @@ import { NgForm } from '@angular/forms';
             {{ icon }}
           </option>
         </select>
+        <ng-container *ngIf="icon.invalid && icon.touched">
+          <div class="donut-form-error" *ngIf="icon.errors?.required">
+            Icon is required
+          </div>
+        </ng-container>
       </label>
 
       <label>
@@ -51,6 +56,11 @@ import { NgForm } from '@angular/forms';
           ngModel
           #price="ngModel"
         />
+        <ng-container *ngIf="price.invalid && price.touched">
+          <div class="donut-form-error" *ngIf="price.errors?.required">
+            Price is required
+          </div>
+        </ng-container>
       </label>
       <div class="donut-form-radios">
         <p class="donut-form-radios-label">Promo :</p>
@@ -87,6 +97,11 @@ import { NgForm } from '@angular/forms';
           />
           <span> No </span>
         </label>
+        <ng-container *ngIf="promo.invalid && promo.touched">
+          <div class="donut-form-error" *ngIf="promo.errors?.required">
+            Promo is required
+          </div>
+        </ng-container>
       </div>
       <label>
         <textarea
@@ -94,11 +109,16 @@ import { NgForm } from '@angular/forms';
           class="input input--textarea"
           required
           ngModel
+          #description="ngModel"
         ></textarea>
+
+        <ng-container *ngIf="description.invalid && description.touched">
+          <div class="donut-form-error" *ngIf="description.errors?.required">
+            Description is required
+          </div>
+        </ng-container>
       </label>
-      <button type="submit" class="btn btn--green" [disabled]="form.invalid">
-        Create
-      </button>
+      <button type="submit" class="btn btn--green">Create</button>
       <pre>{{ form.value | json }}</pre>
       <pre
         >{{ form.form.status }}
@@ -153,7 +173,11 @@ export class DonutFormComponent {
   constructor() {}
 
   handleSubmit(form: NgForm) {
-    console.log(form.value);
+    if (form.valid) {
+      console.log(form.value);
+    } else {
+      form.form.markAllAsTouched();
+    }
   }
 
   icons: string[] = [
