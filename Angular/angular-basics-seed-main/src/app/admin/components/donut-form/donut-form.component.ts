@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-donut-form',
   template: `
-    <form class="donut-form" #form="ngForm">
+    <form class="donut-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
       <label>
         <span> Name </span>
         <input
@@ -95,6 +96,9 @@ import { Component, OnInit } from '@angular/core';
           ngModel
         ></textarea>
       </label>
+      <button type="submit" class="btn btn--green" [disabled]="form.invalid">
+        Create
+      </button>
       <pre>{{ form.value | json }}</pre>
       <pre
         >{{ form.form.status }}
@@ -145,10 +149,12 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-export class DonutFormComponent implements OnInit {
+export class DonutFormComponent {
   constructor() {}
 
-  ngOnInit(): void {}
+  handleSubmit(form: NgForm) {
+    console.log(form.value);
+  }
 
   icons: string[] = [
     'caramel-swirl',
