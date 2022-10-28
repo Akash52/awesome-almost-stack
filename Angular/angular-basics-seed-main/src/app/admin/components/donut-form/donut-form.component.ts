@@ -135,6 +135,9 @@ import { NgForm } from '@angular/forms';
       >
         Reset Form
       </button>
+      <div class="donut-form-workig" *ngIf="form.valid && form.submitted">
+        <div class="donut-form-working-spinner"></div>
+      </div>
       <pre>{{ form.value | json }}</pre>
       <pre
         >{{ form.form.status }}
@@ -179,6 +182,58 @@ import { NgForm } from '@angular/forms';
             font-weight: bold;
             line-height: 1;
             text-align: center;
+          }
+        }
+        &-working {
+          display: none;
+          &-spinner {
+            margin-top: 16px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #444;
+            animation: spin 0.6s linear infinite;
+
+            @keyframes spin {
+              to {
+                transform: rotate(360deg);
+              }
+              from {
+                transform: rotate(0deg);
+              }
+              50% {
+                transform: rotate(180deg);
+              }
+
+              75% {
+                transform: rotate(270deg);
+                border-top-color: #ccc;
+                border-right-color: #444;
+                border-bottom-color: #ccc;
+                border-left-color: #ccc;
+                animation-timing-function: ease-in;
+                animation-duration: 0.2s;
+                animation-delay: 0.2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+                animation-direction: normal;
+              }
+
+              100% {
+                transform: rotate(360deg);
+                border-top-color: #ccc;
+                border-right-color: #ccc;
+                border-bottom-color: #ccc;
+                border-left-color: #444;
+                animation-timing-function: ease-out;
+                animation-duration: 0.2s;
+                animation-delay: 0.2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+                animation-direction: normal;
+              }
+            }
           }
         }
       }
