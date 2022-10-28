@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
           required
           minlength="3"
           ngModel
+          [ngModelOptions]="{ updateOn: 'blur' }"
           #name="ngModel"
         />
         <ng-container *ngIf="name.invalid && name.touched">
