@@ -104,6 +104,10 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [
     `
+      .ng-invalid.ng-touched:not(form) {
+        border: 1px solid red;
+        background-color: #ffe6e6;
+      }
       .donut-form {
         &-radios {
           display: flex;
