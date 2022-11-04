@@ -111,8 +111,8 @@ import { Donut } from './../../models/donut.model';
       <button type="button" class="btn btn--grey" (click)="form.resetForm()">
         Reset Form
       </button>
-      <div class="donut-form-working" *ngIf="form.valid && form.submitted">
-        Working...
+      <div class="donut-form-workig" *ngIf="form.valid && form.submitted">
+        <div class="donut-form-working-spinner"></div>
       </div>
       <pre>{{ donut | json }}</pre>
       <pre>{{ form.value | json }}</pre>
