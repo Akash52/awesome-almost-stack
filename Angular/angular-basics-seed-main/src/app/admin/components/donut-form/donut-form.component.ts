@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Donut } from './../../models/donut.model';
 
@@ -7,143 +7,115 @@ import { Donut } from './../../models/donut.model';
   template: `
     <form class="donut-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
       <label>
-        <span> Name </span>
+        <span>Name</span>
         <input
           type="text"
           name="name"
           class="input"
           required
-          minlength="3"
-          ngModel
+          minlength="5"
+          [ngModel]="donut.name"
           [ngModelOptions]="{ updateOn: 'blur' }"
           #name="ngModel"
         />
         <ng-container *ngIf="name.invalid && name.touched">
-          <div class="donut-form-error" *ngIf="name.errors?.required">
-            Name is required
-          </div>
           <div class="donut-form-error" *ngIf="name.errors?.minlength">
-            Name must be at least 3 characters
+            Minimum length of a name is 5!
+          </div>
+          <div class="donut-form-error" *ngIf="name.errors?.required">
+            Name is required.
           </div>
         </ng-container>
       </label>
-
       <label>
-        <span> Icon </span>
+        <span>Icon</span>
         <select
           name="icon"
           class="input input--select"
           required
-          ngModel
+          [ngModel]="donut.icon"
           #icon="ngModel"
         >
-          <option *ngFor="let icon of icons" [value]="icon">
+          <option *ngFor="let icon of icons" [ngValue]="icon">
             {{ icon }}
           </option>
         </select>
         <ng-container *ngIf="icon.invalid && icon.touched">
           <div class="donut-form-error" *ngIf="icon.errors?.required">
-            Icon is required
+            Icon is required.
           </div>
         </ng-container>
       </label>
-
       <label>
-        <span> Price </span>
+        <span>Price</span>
         <input
           type="number"
           name="price"
           class="input"
           required
-          ngModel
+          [ngModel]="donut.price"
           #price="ngModel"
         />
         <ng-container *ngIf="price.invalid && price.touched">
           <div class="donut-form-error" *ngIf="price.errors?.required">
-            Price is required
+            Price is required.
           </div>
         </ng-container>
       </label>
       <div class="donut-form-radios">
-        <p class="donut-form-radios-label">Promo :</p>
+        <p class="donut-form-radios-label">Promo:</p>
         <label>
           <input
             type="radio"
             name="promo"
-            value="undefined"
-            required
-            ngModel
-            #promo="ngModel"
+            [value]="undefined"
+            [ngModel]="donut.promo"
           />
-          <span> None </span>
+          <span>None</span>
         </label>
         <label>
           <input
             type="radio"
             name="promo"
             value="new"
-            required
-            ngModel
-            #promo="ngModel"
+            [ngModel]="donut.promo"
           />
-          <span> Yes </span>
+          <span>New</span>
         </label>
         <label>
           <input
             type="radio"
             name="promo"
             value="limited"
-            required
-            ngModel
-            #promo="ngModel"
+            [ngModel]="donut.promo"
           />
-          <span> No </span>
+          <span>Limited</span>
         </label>
-        <ng-container *ngIf="promo.invalid && promo.touched">
-          <div class="donut-form-error" *ngIf="promo.errors?.required">
-            Promo is required
-          </div>
-        </ng-container>
       </div>
       <label>
+        <span>Description</span>
         <textarea
           name="description"
           class="input input--textarea"
           required
-          ngModel
+          [ngModel]="donut.description"
           #description="ngModel"
         ></textarea>
-
         <ng-container *ngIf="description.invalid && description.touched">
           <div class="donut-form-error" *ngIf="description.errors?.required">
-            Description is required
+            Description is required.
           </div>
         </ng-container>
       </label>
       <button type="submit" class="btn btn--green">Create</button>
-      <button
-        type="button"
-        class="btn btn--grey"
-        (click)="
-          form.resetForm({
-            name: '',
-            icon: '🍩',
-            price: 0,
-            promo: 'undefined',
-            description: ''
-          })
-        "
-      >
+      <button type="button" class="btn btn--grey" (click)="form.resetForm()">
         Reset Form
       </button>
-      <div class="donut-form-workig" *ngIf="form.valid && form.submitted">
-        <div class="donut-form-working-spinner"></div>
+      <div class="donut-form-working" *ngIf="form.valid && form.submitted">
+        Working...
       </div>
+      <pre>{{ donut | json }}</pre>
       <pre>{{ form.value | json }}</pre>
-      <pre
-        >{{ form.form.status }}
-      </pre
-      >
     </form>
   `,
   styles: [
@@ -188,52 +160,34 @@ import { Donut } from './../../models/donut.model';
         &-working {
           display: none;
           &-spinner {
-            margin-top: 16px;
+            margin: 16px auto;
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: 2px solid #ccc;
-            border-top-color: #444;
-            animation: spin 0.6s linear infinite;
+            background-color: transparent;
+            border: 2px solid #0b0a03;
+            border-top-color: #e25b26;
+            border-bottom-color: #df5826;
+            animation: 1s spin linear infinite;
+          }
+          @keyframes spin {
+            0% {
+              -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
 
-            @keyframes spin {
-              to {
-                transform: rotate(360deg);
-              }
-              from {
-                transform: rotate(0deg);
-              }
-              50% {
-                transform: rotate(180deg);
-              }
+              -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+            }
+            50% {
+              -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
 
-              75% {
-                transform: rotate(270deg);
-                border-top-color: #ccc;
-                border-right-color: #444;
-                border-bottom-color: #ccc;
-                border-left-color: #ccc;
-                animation-timing-function: ease-in;
-                animation-duration: 0.2s;
-                animation-delay: 0.2s;
-                animation-iteration-count: 1;
-                animation-fill-mode: forwards;
-                animation-direction: normal;
-              }
-
-              100% {
-                transform: rotate(360deg);
-                border-top-color: #ccc;
-                border-right-color: #ccc;
-                border-bottom-color: #ccc;
-                border-left-color: #444;
-                animation-timing-function: ease-out;
-                animation-duration: 0.2s;
-                animation-delay: 0.2s;
-                animation-iteration-count: 1;
-                animation-fill-mode: forwards;
-                animation-direction: normal;
-              }
+              -webkit-animation-timing-function: ease;
+              animation-timing-function: ease;
+            }
+            100% {
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
             }
           }
         }
@@ -242,6 +196,7 @@ import { Donut } from './../../models/donut.model';
   ],
 })
 export class DonutFormComponent {
+  @Input() donut!: Donut;
   @Output() create = new EventEmitter<Donut>();
 
   constructor() {}
