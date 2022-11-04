@@ -5,7 +5,7 @@ import { Donut } from '../models/donut.model';
   providedIn: 'root',
 })
 export class DonutService {
-  donuts: Donut[] = [
+  private donuts: Donut[] = [
     {
       id: 'y8z0As',
       name: 'Just Chocolate',
@@ -45,11 +45,12 @@ export class DonutService {
     },
   ];
   constructor() {}
-
+  //Service for reading all donuts
   read() {
     return this.donuts;
   }
 
+  //Service for reading a single donut
   readOne(id: string) {
     const donut = this.read().find((donut) => donut.id === id);
     if (donut) {
@@ -61,5 +62,11 @@ export class DonutService {
       price: 0,
       description: '',
     };
+  }
+
+  //Service for creating a new donut
+  create(payload: Donut) {
+    this.donuts = [...this.donuts, payload];
+    console.log(this.donuts);
   }
 }
