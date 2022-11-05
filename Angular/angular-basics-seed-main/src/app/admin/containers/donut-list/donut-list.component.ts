@@ -6,7 +6,7 @@ import { DonutService } from './../../services/donut.service';
   selector: 'app-donut-list',
   template: `
     <div>
-      <ng-container *ngIf="donuts.length; then cards; else noDonuts">
+      <ng-container *ngIf="donuts?.length; then cards; else noDonuts">
       </ng-container>
       <ng-template #cards>
         <app-donut-card
@@ -22,7 +22,7 @@ import { DonutService } from './../../services/donut.service';
   styles: [],
 })
 export class DonutListComponent implements OnInit {
-  donuts!: Donut[];
+  donuts: Donut[] = [];
 
   constructor(private donutService: DonutService) {}
 
