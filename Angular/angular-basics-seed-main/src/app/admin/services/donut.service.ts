@@ -69,6 +69,7 @@ export class DonutService {
     this.donuts = [...this.donuts, payload];
     console.log(this.donuts);
   }
+
   //Service for updating a donut
   update(payload: Donut) {
     this.donuts = this.donuts.map((donut) => {
@@ -77,6 +78,12 @@ export class DonutService {
       }
       return donut;
     });
+    console.log(this.donuts);
+  }
+
+  //Service for deleting a donut
+  delete(payload: Donut) {
+    this.donuts = this.donuts.filter((donut) => donut.id !== payload.id);
     console.log(this.donuts);
   }
 }

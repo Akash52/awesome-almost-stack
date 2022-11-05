@@ -10,6 +10,7 @@ import { DonutService } from './../../services/donut.service';
         [donut]="donut"
         (create)="onCreate($event)"
         (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
       ></app-donut-form>
       >
     </div>
@@ -29,5 +30,8 @@ export class DonutSingleComponent implements OnInit {
   }
   onUpdate(donut: Donut) {
     this.donutService.update(donut);
+  }
+  onDelete(donut: Donut) {
+    this.donutService.delete(donut);
   }
 }

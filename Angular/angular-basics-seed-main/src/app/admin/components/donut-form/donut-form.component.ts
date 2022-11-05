@@ -118,9 +118,13 @@ import { Donut } from './../../models/donut.model';
       >
         Update
       </button>
+      <button type="button" class="btn btn--green" (click)="handleDelete(form)">
+        Delete
+      </button>
       <button type="button" class="btn btn--grey" (click)="form.resetForm()">
         Reset Form
       </button>
+
       <div class="donut-form-workig" *ngIf="form.valid && form.submitted">
         <div class="donut-form-working-spinner"></div>
       </div>
@@ -209,6 +213,7 @@ export class DonutFormComponent {
   @Input() donut!: Donut;
   @Output() create = new EventEmitter<Donut>();
   @Output() update = new EventEmitter<Donut>();
+  @Output() delete = new EventEmitter<Donut>();
 
   constructor() {}
 
@@ -225,6 +230,12 @@ export class DonutFormComponent {
       this.update.emit({ id: this.donut.id, ...form.value });
     } else {
       form.form.markAllAsTouched();
+    }
+  }
+
+  handleDelete(form: NgForm) {
+    if (confirm(`Are you sure you want to delete ${this.donut.name}?`)) {
+      this.delete.emit({ id: this.donut.id, ...form.value });
     }
   }
 
