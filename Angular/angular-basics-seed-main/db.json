@@ -36,6 +36,22 @@
       "icon": "zesty-lemon",
       "price": 129,
       "description": "Delicious lucious lemon."
+    },
+    {
+      "name": "Akash",
+      "icon": "just-chocolate",
+      "price": 3,
+      "promo": "new",
+      "description": "kjljklj",
+      "id": "5KXN7v3"
+    },
+    {
+      "name": "BookCars",
+      "icon": "caramel-swirl",
+      "price": 4,
+      "promo": "new",
+      "description": "hgj",
+      "id": "AqWfaPM"
     }
   ]
 }
