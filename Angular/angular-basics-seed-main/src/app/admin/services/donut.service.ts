@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, of, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map, of, tap, throwError } from 'rxjs';
 import { Donut } from '../models/donut.model';
 
 @Injectable({
@@ -14,9 +14,10 @@ export class DonutService {
     if (this.donuts.length) {
       return of(this.donuts);
     }
-    return this.http
-      .get<Donut[]>(`/api/donuts`)
-      .pipe(tap((donuts: Donut[]) => (this.donuts = donuts)));
+    return this.http.get<Donut[]>(`/api/donuts`).pipe(
+      tap((donuts: Donut[]) => (this.donuts = donuts)),
+      catchError(this.handleError)
+    );
   }
 
   //Service for reading a single donut
@@ -33,7 +34,8 @@ export class DonutService {
           price: 0,
           description: '',
         };
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -42,7 +44,8 @@ export class DonutService {
     return this.http.post<Donut>(`/api/donuts`, payload).pipe(
       tap((donut: Donut) => {
         this.donuts = [...this.donuts, donut];
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -56,7 +59,8 @@ export class DonutService {
           }
           return item;
         });
-      })
+      }),
+      catchError(this.handleError)
     );
 
     console.log(this.donuts);
@@ -67,7 +71,20 @@ export class DonutService {
     return this.http.delete<Donut>(`/api/donuts/${payload.id}`).pipe(
       tap((donut: Donut) => {
         this.donuts = this.donuts.filter((item: Donut) => item.id !== donut.id);
-      })
+      }),
+      catchError(this.handleError)
     );
+  }
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      console.error(
+        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
+      );
+    }
+    return throwError(() => new Error(error.message));
   }
 }
