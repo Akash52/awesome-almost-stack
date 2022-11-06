@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
       </header>
 
       <!-- <app-donut-list> </app-donut-list> -->
-      <app-donut-single></app-donut-single>
+      <!-- <app-donut-single></app-donut-single> -->
+      <router-outlet></router-outlet>
     </div>
   `,
   styles: [
