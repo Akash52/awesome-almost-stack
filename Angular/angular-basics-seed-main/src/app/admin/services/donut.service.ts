@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import {
   catchError,
   map,
@@ -23,7 +27,16 @@ export class DonutService {
     if (this.donuts.length) {
       return of(this.donuts);
     }
-    return this.http.get<Donut[]>(`/api/donuts`).pipe(
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    }).append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+
+    const options = {
+      headers,
+    };
+
+    return this.http.get<Donut[]>(`/api/donuts`, options).pipe(
       tap((donuts: Donut[]) => (this.donuts = donuts)),
       retryWhen((errors) => errors.pipe(delay(5000), take(2))),
 
