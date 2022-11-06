@@ -12,7 +12,6 @@ import { DonutService } from './../../services/donut.service';
         (update)="onUpdate($event)"
         (delete)="onDelete($event)"
       ></app-donut-form>
-      >
     </div>
   `,
   styles: [],
@@ -22,8 +21,10 @@ export class DonutSingleComponent implements OnInit {
   constructor(private donutService: DonutService) {}
 
   ngOnInit(): void {
-    // const id = 'y8z0As';
-    // this.donut = this.donutService.readOne(id);
+    const id = 'y8z0As';
+    this.donutService.readOne(id).subscribe((donut: Donut) => {
+      this.donut = donut;
+    });
   }
   onCreate(donut: Donut) {
     this.donutService.create(donut);

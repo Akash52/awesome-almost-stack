@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
         <img class="app-logo" src="assets/img/logo.svg" alt="Angular Donuts" />
       </header>
 
-      <app-donut-list> </app-donut-list>
-      <!-- <app-donut-single></app-donut-single> -->
+      <!-- <app-donut-list> </app-donut-list> -->
+      <app-donut-single></app-donut-single>
     </div>
   `,
   styles: [
