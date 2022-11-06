@@ -48,12 +48,17 @@ export class DonutService {
 
   //Service for updating a donut
   update(payload: Donut) {
-    this.donuts = this.donuts.map((donut) => {
-      if (donut.id === payload.id) {
-        return payload;
-      }
-      return donut;
-    });
+    return this.http.put<Donut>(`/api/donuts/${payload.id}`, payload).pipe(
+      tap((donut: Donut) => {
+        this.donuts = this.donuts.map((item: Donut) => {
+          if (item.id === donut.id) {
+            return donut;
+          }
+          return item;
+        });
+      })
+    );
+
     console.log(this.donuts);
   }
 
