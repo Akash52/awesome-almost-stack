@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from './Header';
 import styles from './../styles/Layout.module.css';
 
 export default function Layout({ title, keywords, description, children }) {
@@ -12,9 +13,7 @@ export default function Layout({ title, keywords, description, children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
-        <header>
-          <h1>Header</h1>
-        </header>
+        <Header />
         <main className={styles.container}>{children}</main>
         <footer>
           <h1>Footer</h1>
