@@ -3,7 +3,7 @@
     {
       "id": "y8z0As",
       "name": "Just Chocolate",
-      "icon": "glazed-fudge",
+      "icon": "vanilla-sundae",
       "price": 120,
       "promo": "new",
       "description": "For the pure chocoholic."
@@ -46,19 +46,12 @@
       "id": "AqWfaPM"
     },
     {
-      "name": "Akash",
+      "id": "Rb-9Wnx",
+      "name": "Glazed Fudge",
       "icon": "glazed-fudge",
       "price": 5,
       "promo": "limited",
-      "description": "dsa",
-      "id": "Rb-9Wnx"
-    },
-    {
-      "name": "Lamborghini Sian Roadster",
-      "icon": "just-chocolate",
-      "price": 0,
-      "description": "adsdw",
-      "id": "yob3JT7"
+      "description": "dsa"
     }
   ]
 }

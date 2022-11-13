@@ -45,7 +45,7 @@ export class DonutService {
   }
 
   //Service for reading a single donut
-  readOne(id: string) {
+  readOne(id: string | null) {
     return this.read().pipe(
       map((donuts: Donut[]) => {
         const donut = donuts.find((donut) => donut.id === id);
