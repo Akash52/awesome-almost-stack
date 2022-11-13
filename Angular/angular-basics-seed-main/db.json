@@ -44,6 +44,21 @@
       "promo": "new",
       "description": "hgj",
       "id": "AqWfaPM"
+    },
+    {
+      "name": "Akash",
+      "icon": "glazed-fudge",
+      "price": 5,
+      "promo": "limited",
+      "description": "dsa",
+      "id": "Rb-9Wnx"
+    },
+    {
+      "name": "Lamborghini Sian Roadster",
+      "icon": "just-chocolate",
+      "price": 0,
+      "description": "adsdw",
+      "id": "yob3JT7"
     }
   ]
 }
