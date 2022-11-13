@@ -1,30 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
-import { DonutListComponent } from './admin/containers/donut-list/donut-list.component';
-import { DonutSingleComponent } from './admin/containers/donut-single/donut-single.component';
 
 export const routes: Routes = [
   {
     path: 'admin',
-    children: [
-      {
-        path: 'donuts',
-        component: DonutListComponent,
-      },
-      {
-        path: 'donut',
-        component: DonutSingleComponent,
-      },
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'donuts',
-      },
-    ],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: '',
@@ -39,7 +24,7 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes), AdminModule],
+  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
