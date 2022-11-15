@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="tv-container">
+      <div class="tv-header">Recent Tv Sellers</div>
+      <wj-flex-grid
+        [itemsSource]="TvData"
+        [isReadOnly]="true"
+        [selectionMode]="'Row'"
+        [headersVisibility]="'Column'"
+      >
+        <wj-flex-grid-column
+          binding="name"
+          header="Country"
+          [width]="'*'"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="name"
+          header="Tv Brand"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="price"
+          header="Price"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="country"
+          header="Country"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="quantity"
+          header="Quantity"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column binding="date" header="Date"></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="tvType"
+          header="Tv Type"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="tvSize"
+          header="Tv Size"
+        ></wj-flex-grid-column>
+        <wj-flex-grid-column
+          binding="totalSales"
+          header="Total Sales"
+        ></wj-flex-grid-column>
+      </wj-flex-grid>
+      <br />
+      <wj-collection-view-navigator
+        headerFormat="Page {currentPage:n0} of {pageCount:n0}"
+        [byPage]="true"
+        [cv]="TvData"
+      >
+      </wj-collection-view-navigator>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="platforms-container">
+      <div class="platforms-header">
+        Sales & Price Distribution
+        <i class="bi bi-question-circle"></i>
+      </div>
+      <div class="platforms-info">
+        <wj-flex-chart
+          [header]="'Total Sales Each Product & Current Price'"
+          [bindingX]="'name'"
+          [selectionMode]="'Point'"
+          [itemsSource]="TvData"
+          [palette]="chartPalette"
+        >
+          <wj-flex-chart-legend [position]="'None'"></wj-flex-chart-legend>
+          <wj-flex-chart-series
+            [name]="'Total Sales'"
+            [binding]="'totalSales'"
+          ></wj-flex-chart-series>
+          <wj-flex-chart-series
+            [name]="'Price'"
+            [binding]="'price'"
+          ></wj-flex-chart-series>
+        </wj-flex-chart>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="platforms-container">
+      <div class="platforms-info">
+        <wj-flex-pie
+          [header]="'Remaining Tv Quantity'"
+          [bindingName]="'name'"
+          [binding]="'quantity'"
+          [itemsSource]="TvData"
+          [palette]="piePalette"
+        ></wj-flex-pie>
+      </div>
+    </div>
+  </div>
+</div>

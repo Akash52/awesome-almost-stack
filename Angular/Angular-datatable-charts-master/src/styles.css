@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@grapecity/wijmo.styles/themes/wijmo.theme.material.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+body {
+  margin: 0;
+  background-color: white;
+}
+
+.wj-flexgrid {
+  border: none;
+}
+
+.wj-flexgrid .wj-cell {
+  border-left: none;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: hsl(0, 0%, 100%);
+  font-weight: 400;
+  height: 48px;
+}
+
+.wj-flexgrid .wj-colheaders .wj-header.wj-cell {
+  height: 56px;
+  font-weight: bold;
+  font-size: 16px;
+  background: hsl(0, 0%, 80%);
+  border-right: 1px solid gray;
+}
+
+.wj-flexgrid .wj-colheaders .wj-header.wj-cell:last-child {
+  border-right: none;
+}
+
+.wj-cell.wj-has-notes:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  right: 0;
+  top: -10px;
+  border: 10px solid transparent;
+  border-right: 10px solid red;
+  opacity: 0.5;
+}
+
+.wj-cell.wj-has-notes:hover:after {
+  opacity: 1;
+}
+
+.bi-tv {
+  font-size: 1.9rem;
+  color: #007bff;
+  margin-right: 8px;
+}
+
+.nav-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 8px;
+}

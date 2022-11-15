@@ -1,0 +1,211 @@
+.top-nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background-color: hsl(0, 0%, 27%);
+  box-shadow: 1px 0 5px -2px rgb(180, 180, 180);
+  z-index: 100;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+
+.nav-header {
+  color: hsl(187, 100%, 42%);
+}
+
+.livemap-grid {
+  margin-top: 60px;
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "one"
+    "two"
+    "three"
+    "five"
+    "four"
+    "six"
+    "seven"
+    "eight";
+  padding-block: 2rem;
+  width: 95%;
+  margin-inline: auto;
+}
+
+.map {
+  height: 550px;
+  box-shadow: 2px 2px 2px 2px hsl(0, 0%, 70%);
+  width: 100%;
+}
+
+.sessions {
+  height: 550px;
+  box-shadow: 2px 2px 2px 2px hsl(0, 0%, 70%);
+  width: 100%;
+}
+
+.tv-info {
+  height: 550px;
+  box-shadow: 2px 2px 2px 2px hsl(0, 0%, 70%);
+  width: 100%;
+}
+
+.issue-info {
+  height: 550px;
+  box-shadow: 2px 2px 2px 2px hsl(0, 0%, 70%);
+  width: 100%;
+}
+
+.top-platforms {
+  box-shadow: 2px 2px 2px 2px hsl(0, 0%, 70%);
+  width: 100%;
+}
+
+.livemap:nth-child(1) {
+  grid-area: one;
+}
+
+.livemap:nth-child(2) {
+  grid-area: two;
+}
+
+.livemap:nth-child(3) {
+  grid-area: three;
+}
+
+.livemap:nth-child(4) {
+  grid-area: four;
+}
+
+.livemap:nth-child(5) {
+  grid-area: five;
+}
+
+.livemap:nth-child(6) {
+  grid-area: six;
+}
+
+.livemap:nth-child(7) {
+  grid-area: seven;
+}
+
+.livemap:nth-child(8) {
+  grid-area: eight;
+}
+
+@media (min-width: 800px) {
+  .livemap-grid {
+    grid-template-areas:
+      "one one one one"
+      "two two two two"
+      "two two two two"
+      "three three three three"
+      "three three three three"
+      "five five five five"
+      "five five five five"
+      "four four six six"
+      "four four six six"
+      "seven seven seven seven"
+      "eight eight eight eight";
+  }
+}
+
+@media (min-width: 1200px) {
+  .livemap-grid {
+    grid-template-areas:
+      "one one one one"
+      "two two two two"
+      "two two two two"
+      "three three three four"
+      "three three three four"
+      "five five five six"
+      "five five five six"
+      "seven seven eight eight";
+  }
+
+  .map {
+    height: 550px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .livemap-grid {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+    margin-top: 80px;
+  }
+
+  .livemap:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    margin-bottom: 20px;
+  }
+
+  .livemap:nth-child(2) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    -ms-grid-row-span: 2;
+    margin-bottom: 20px;
+  }
+
+  .livemap:nth-child(3) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    -ms-grid-row-span: 2;
+    margin-bottom: 20px;
+    width: 98%;
+  }
+
+  .livemap:nth-child(4) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    -ms-grid-row-span: 2;
+    margin-bottom: 20px;
+  }
+
+  .livemap:nth-child(5) {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    -ms-grid-row-span: 2;
+    margin-bottom: 20px;
+    width: 98%;
+  }
+
+  .livemap:nth-child(6) {
+    -ms-grid-row: 6;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    -ms-grid-row-span: 2;
+    margin-bottom: 20px;
+  }
+
+  .livemap:nth-child(7) {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    -ms-grid-row-span: 1;
+    margin-bottom: 20px;
+    width: 98%;
+  }
+
+  .livemap:nth-child(8) {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    -ms-grid-row-span: 1;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,19 @@
+.tv-container {
+  padding: 1rem;
+}
+
+.tv-header {
+  font-size: 1.05em;
+  color: gray;
+}
+
+.wj-flexgrid {
+  max-height: 440px;
+  margin-top: 10px;
+}
+
+@media (max-width: 799px) {
+  .wj-collectionview-navigator {
+    width: 300px;
+  }
+}
