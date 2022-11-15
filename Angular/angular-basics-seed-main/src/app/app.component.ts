@@ -22,7 +22,7 @@ import { Component, OnInit } from '@angular/core';
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         padding: 25px;
         margin: 25px auto;
-        boredr: 4px solid #ef9fc7;
+        border 4px solid #ef9fc7;
       }
       .app-header {
         background-color: #ef9fc7;

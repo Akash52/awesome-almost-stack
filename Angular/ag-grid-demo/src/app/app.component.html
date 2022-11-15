@@ -1,0 +1,31 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  "
+>
+  <ag-grid-angular
+    #agGrid
+    style="width: 100%; height: 30%"
+    id="myGrid"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData"
+    [enableRangeSelection]="true"
+    [enableCharts]="true"
+    [getChartToolbarItems]="getChartToolbarItems"
+    [animateRows]="true"
+    (firstDataRendered)="onFirstDataRendered($event)"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+  <div id="chart1" style="flex: 1 1 auto; overflow: hidden; height: 30%"></div>
+  <div style="display: flex; flex: 1 1 auto; overflow: hidden; height: 30%">
+    <div id="chart2" style="flex: 1 1 auto; overflow: hidden; width: 25%"></div>
+    <div id="chart3" style="flex: 1 1 auto; overflow: hidden; width: 25%"></div>
+    <div id="chart4" style="flex: 1 1 auto; overflow: hidden; width: 25%"></div>
+  </div>
+</div>
