@@ -1,5 +1,3 @@
-import React from 'react';
-
-const ProductPage = () => <div>productPage</div>;
+const ProductPage = () => <p>Hello I'm the sell page</p>;
 
 export default ProductPage;

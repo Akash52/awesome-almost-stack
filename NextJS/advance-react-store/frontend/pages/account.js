@@ -1,5 +1,3 @@
-import React from 'react';
-
-const AccountPage = () => <div>accountPage</div>;
+const AccountPage = () => <p>Hello I'm the sell page</p>;
 
 export default AccountPage;

@@ -1,5 +1,8 @@
-import React from 'react';
+const IndexPage = () => (
+  <>
+    <p>Hello</p>
+    <h1>I'm index</h1>
+  </>
+);
 
-const index = () => <div>index</div>;
-
-export default index;
+export default IndexPage;

@@ -1,5 +1,3 @@
-import React from 'react';
-
-const OrdersPage = () => <div>orders</div>;
+const OrdersPage = () => <p>Hello I'm the orders page</p>;
 
 export default OrdersPage;
