@@ -17,3 +17,16 @@ Angular Basics v14
 <img src="https://i.ibb.co/gJkhW9d/07.png" alt="07" border="0" width="500px">
 
 </div>
+
+Some common features of Angular include:
+
+- Two-way data binding: allows changes in the model to automatically update the view, and vice versa.
+- Directives: allow for the manipulation and creation of custom HTML elements and attributes.
+- Components: modular units of an Angular application that can be reused across the application.
+- Services: provide a way to share data and functionality across different components.
+- Dependency injection: a way to inject services and other objects into components, making them more modular and easier to test.
+- Routing: allows for the creation of different views and navigation within the application.
+- Templates: used to define the layout and structure of a component's view.
+- Forms: allows for the creation and validation of forms within the application.
+- Pipes: used to transform data for display in the template.
+- TypeScript: Angular is written in TypeScript and uses its features such as classes, interfaces and decorators.
