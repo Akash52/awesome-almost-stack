@@ -1,4 +1,3 @@
-### Slides
 <h1 align="center">
 <img width="40" valign="bottom" src="https://ultimatecourses.com/static/icons/angular.svg">
 Angular Basics v14
