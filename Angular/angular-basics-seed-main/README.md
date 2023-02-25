@@ -1,3 +1,4 @@
+### Slides
 <h1 align="center">
 <img width="40" valign="bottom" src="https://ultimatecourses.com/static/icons/angular.svg">
 Angular Basics v14
@@ -17,3 +18,7 @@ Angular Basics v14
 <img src="https://i.ibb.co/gJkhW9d/07.png" alt="07" border="0" width="500px">
 
 </div>
+
+ ### Reference Link! [Angular Framework (v15)](https://ultimatecourses.com/learn/angular-basics)
+
+
