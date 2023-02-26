@@ -17,3 +17,7 @@ Angular Basics v14
 <img src="https://i.ibb.co/gJkhW9d/07.png" alt="07" border="0" width="500px">
 
 </div>
+
+ ### Reference Link! [Angular Framework (v15)](https://ultimatecourses.com/learn/angular-basics)
+
+
