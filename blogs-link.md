@@ -2,6 +2,8 @@
 
 https://scalastic.io/en/solid-dry-kiss/
 
+https://www.calibraint.com/blog/solid-principles-in-javascript
+
 [What’s Point Free Style in TypeScript?](https://itnext.io/whats-point-free-style-in-typescript-39337000c8cb#:~:text=What%20is%20Point%20Free,the%20same%20in%20JavaScript%2FES6.)
 
 https://blog.sqreen.com/authentication-best-practices-vue/
