@@ -1,86 +1,77 @@
+// HabitService is responsible for all habit-related data operations in the app.
+//
+// - This service manages the list of habits, including loading from and saving to localStorage.
+// - It exposes methods to add, update, delete, and fetch habits.
+// - The service uses RxJS BehaviorSubject to keep the habit list reactive, so components automatically update when the data changes.
+// - Marked with @Injectable({ providedIn: 'root' }) so it is a singleton and available app-wide.
+//
+// Key Angular Concepts:
+// - @Injectable: Marks this class as available for dependency injection
+// - Service: Used for business logic and data management
+// - Observable: Used to provide data asynchronously
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Habit, HabitFrequency } from './habit';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { Habit } from './habit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HabitService {
+  private storageKey = 'habits';
+  private habitsSubject = new BehaviorSubject<Habit[]>([]);
 
-  habits: Habit[] = [
-    {
-      id: 1,
-      name: 'Financial Review',
-      frequency: HabitFrequency.MONTHLY,
-      description: 'Review and adjust personal budget and expenses',
-    },
-    {
-      id: 2,
-      name: 'Reading',
-      frequency: HabitFrequency.DAILY,
-      description: 'Read at least 20 pages of a book',
-    },
-    {
-      id: 3,
-    
-
-      name: 'Learning a New Skill',
-      frequency: HabitFrequency.WEEKLY,
-      description: 'Spend time learning a new skill or hobby',
-    },
-    {
-      id: 4,
-      name: 'Hydration',
-      frequency: HabitFrequency.DAILY,
-      description: 'Drink at least 2 liters of water',
-    },
-    {
-      id: 5,
-      name: 'Sleep',
-      frequency: HabitFrequency.DAILY,
-      description: 'Get at least 7 hours of sleep',
-    },
-    {
-      id: 6,
-      name: 'Journaling',
-      frequency: HabitFrequency.DAILY,
-      description: 'Write down thoughts and reflections for the day',
-    },
-    {
-      id: 7,
-      name: 'Healthy Eating',
-      frequency: HabitFrequency.DAILY,
-      description: 'Eat at least 5 servings of fruits and vegetables',
-    },
-    {
-      id: 8,
-      name: 'Meditation',
-      frequency: HabitFrequency.DAILY,
-      description: '10 minutes of mindfulness meditation',
-    },
-    {
-      id: 9,
-      name: 'Networking',
-      frequency: HabitFrequency.MONTHLY,
-      description: 'Connect with at least one new person in your field',
-    },
-    {
-      id: 10,
-      name: 'Exercise',
-      frequency: HabitFrequency.DAILY,
-      description: '30 minutes of physical activity',
-    }
-  ];
-  constructor() { }
-  getHabits() : Observable<Habit[]>  {
-    return of(this.habits)
+  constructor() {
+    this.loadHabits();
   }
 
+  // Load habits from localStorage or use defaults
+  private loadHabits() {
+    const stored = localStorage.getItem(this.storageKey);
+    if (stored) {
+      this.habitsSubject.next(JSON.parse(stored));
+    } else {
+      this.habitsSubject.next([]);
+    }
+  }
+
+  // Save habits to localStorage
+  private saveHabits() {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.habitsSubject.value));
+  }
+
+  // Returns the list of habits as an Observable
+  getHabits(): Observable<Habit[]> {
+    return this.habitsSubject.asObservable();
+  }
+
+  // Adds a new habit to the list
   addHabit(habitData: Habit) {
+    const habits = [...this.habitsSubject.value];
     const newHabit = {
       ...habitData,
-      id: this.habits.length + 1,
+      id: habits.length > 0 ? Math.max(...habits.map(h => h.id)) + 1 : 1,
     };
-    this.habits.push(newHabit);
+    habits.push(newHabit);
+    this.habitsSubject.next(habits);
+    this.saveHabits();
+  }
+
+  // Updates an existing habit
+  updateHabit(updatedHabit: Habit) {
+    const habits = this.habitsSubject.value.map(h => h.id === updatedHabit.id ? { ...updatedHabit } : h);
+    this.habitsSubject.next(habits);
+    this.saveHabits();
+  }
+
+  // Deletes a habit by id
+  deleteHabit(id: number) {
+    const habits = this.habitsSubject.value.filter(h => h.id !== id);
+    this.habitsSubject.next(habits);
+    this.saveHabits();
+  }
+
+  // Returns a habit by id (synchronously)
+  getHabitById(id: number): Habit | undefined {
+    return this.habitsSubject.value.find(h => h.id === id);
   }
 }
