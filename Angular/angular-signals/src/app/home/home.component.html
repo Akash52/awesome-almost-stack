@@ -7,12 +7,15 @@
 
   <h3>100X {{hunderedXCounter()}}</h3>
 
-  <button class="btn">
+  <button class="btn" (click)="onAddCourse()">
     Add Course
   </button>
 
   <button (click)="increment()" class="btn">
     Increment Counter
+  </button>
+   <button (click)="cleanup()" class="btn">
+   Cleanup Effect
   </button>
   <button (click)="append()" class="btn">
     Append Value
@@ -22,12 +25,23 @@
 
     <mat-tab label="Beginners">
 
-
+      <courses-card-list
+      #beginnersList
+      matTooltip="Beginners Courses"
+      (courseUpdated)="onCourseUpdated($event)"
+      (courseDeleted)="onCourseDeleted($event)"
+      [courses]="beginnnerCourses()"
+       />
 
     </mat-tab>
 
     <mat-tab label="Advanced">
-
+      <courses-card-list
+      matTooltip="Advanced Courses"
+      (courseUpdated)="onCourseUpdated($event)"
+      (courseDeleted)="onCourseDeleted($event)"
+      [courses]="advancedCourses()"
+       />
 
     </mat-tab>
 

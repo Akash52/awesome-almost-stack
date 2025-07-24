@@ -1,0 +1,37 @@
+@for (item of courses(); track $index) {
+  <div class="course-card" #courseCard>
+
+    <div class="course-header">
+      <span class="course-title">
+        {{item.title}}
+      </span>
+    </div>
+    <img [src]="item.iconUrl" [alt]="item.title" class="course-image">
+    <div class="course-description">
+      <p>
+        {{item.longDescription}}
+      </p>
+    </div>
+    <div class="course-actions">
+      <!-- Using programmatic navigation -->
+      <button class="btn"
+      (click)="navigateToCourse(item)"
+      >
+        View Course (ID: {{item.id}})
+      </button>
+      
+      <!-- Alternative: Direct RouterLink (uncomment if programmatic doesn't work) -->
+      <!-- <a class="btn" [routerLink]="['/courses', item.id]">View Course (ID: {{item.id}})</a> -->
+      <button class="btn"
+
+      (click)="editCourse(item)"
+      
+      >
+        Edit Course
+      </button>
+      <img src="/assets/icons/delete.svg" alt="" class="delete"
+      (click)="deleteCourse(item)"
+      >
+    </div>
+  </div>
+}

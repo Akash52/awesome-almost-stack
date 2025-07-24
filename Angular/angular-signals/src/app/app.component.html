@@ -24,15 +24,20 @@
         <span>resource() Demo</span>
       </a>
 
+      @if (isLoggedIn()) {
+        <a mat-list-item
+        >
+        <mat-icon>exit_to_app</mat-icon>
+        <span
+        (click)="onLogout()"
+        >Logout</span>
+      </a>
+      } @else {
       <a mat-list-item routerLink="login">
         <mat-icon>account_circle</mat-icon>
         <span>Login</span>
       </a>
-      <a mat-list-item>
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </a>
-
+      }
     </mat-nav-list>
 
   </mat-sidenav>
@@ -51,6 +56,9 @@
 
   </mat-toolbar>
 
+  <loading/>
+  
+  <messages/>
 
   <router-outlet/>
 

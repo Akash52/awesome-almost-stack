@@ -3,7 +3,10 @@
 
   <label></label>
 
-  <select  #category>
+  <select
+    [value]="value()"
+    (change)="onCategorySelected(category.value)"
+    #category>
     <option value="BEGINNER">Beginners</option>
     <option value="INTERMEDIATE">Intermediate</option>
     <option value="ADVANCED">Advanced</option>
